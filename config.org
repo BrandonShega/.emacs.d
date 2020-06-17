@@ -1,0 +1,61 @@
+* General Settings
+** Personal
+#+begin_src emacs-lisp
+  (setq user-full-name "Brandon Shega"
+	user-mail-address "b.shega@gmail.com"
+	epa-file-encrypt-to user-mail-address)
+#+end_src
+
+** Settings
+#+begin_src emacs-lisp
+  (blink-cursor-mode 0)
+  (scroll-bar-mode 0)
+  (tool-bar-mode 0)
+  (tooltip-mode 0)
+  (setq inhibit-startup-screen t)
+#+end_src
+
+* Package Management
+#+begin_src emacs-lisp
+  (require 'package)
+  (setq-default
+   load-prefer-newer t
+   package-enable-at-startup nil)
+  (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+  (add-to-list 'package-archives '("org" . "https://orgmode.org/elpa/") t)
+  (package-initialize)
+#+end_src
+
+** Use Package
+#+begin_src emacs-lisp
+  (unless (package-installed-p 'use-package)
+    (package-refresh-contents)
+    (package-install 'use-package t))
+  (setq-default
+   use-package-always-ensure t)
+#+end_src
+
+* Theme
+Load the current theme of the day
+#+begin_src emacs-lisp
+  (use-package doom-themes
+    :config
+    (load-theme 'doom-dracula t))
+
+  (use-package seoul256-theme
+    :disabled
+    :config
+    (load-theme 'seoul256 t))
+#+end_src
+* Packages
+** General
+*** Evil
+#+begin_src emacs-lisp
+  (use-package evil
+    :config
+    (evil-mode 1))
+#+end_src
+
+
+
+
