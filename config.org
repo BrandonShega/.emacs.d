@@ -1,4 +1,7 @@
-* Table of Contents :TOC:
+#+title: Personal Emacs Config
+#+author: Brandon Shega
+#+export_file_name: README
+* Table of Contents :TOC:noexport:
 - [[#general-settings][General Settings]]
   - [[#personal][Personal]]
   - [[#settings][Settings]]
@@ -317,6 +320,9 @@ Emacs package that displays available keybindings in popup
 #+begin_src emacs-lisp
   (use-package toc-org
     :hook ((org-mode markdown-mode) . toc-org-mode))
+
+  (use-package ox-gfm
+    :after org)
 #+end_src
 * Keybindings
 Minimap configuration
